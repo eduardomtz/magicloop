@@ -3,7 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Distribution / packaging
 *.egg-info
+
+# Logs
 *.log
 
 # C extensions
