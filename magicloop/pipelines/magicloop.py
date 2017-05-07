@@ -1,10 +1,10 @@
 # coding: utf-8
 """
-Dummy Pipeline 
+magicloop Pipeline 
 
-.. module:: dummy
+.. module:: magicloop
 
-   :synopsis: Dummy pipeline
+   :synopsis: magicloop pipeline
 
 .. moduleauthor:: Adolfo De Unánue <nanounanue@gmail.com>
 """
@@ -30,19 +30,19 @@ load_dotenv(find_dotenv())
 
 
 ## Logging
-import dummy.config_ini
+import magicloop.config_ini
 
 import logging
 
-logger = logging.getLogger("dpa-template.dummy")
+logger = logging.getLogger("dpa-template.magicloop")
 
 
-import dummy.pipelines.utils
-import dummy.pipelines.common
+import magicloop.pipelines.utils
+import magicloop.pipelines.common
 
 
 
-class DummyPipeline(luigi.WrapperTask):
+class magicloopPipeline(luigi.WrapperTask):
     """
     Task principal para el pipeline 
     """
@@ -59,7 +59,7 @@ class RTask(luigi.Task):
 
     def run(self):
         cmd = '''
-              docker run --rm --network dummy_net -v dummy_store:/dummy/data  dummy/test-r 
+              docker run --rm --network magicloop_net -v magicloop_store:/magicloop/data  magicloop/test-r 
         '''
 
         logger.debug(cmd)
@@ -79,9 +79,9 @@ class PythonTask(luigi.Task):
 
     def run(self):
         cmd = '''
-              docker run --rm --network dummy_net  -v dummy_store:/dummy/data  dummy/test-python --inputfile {} --outputfile {}
-        '''.format(os.path.join("/dummy/data", os.path.basename(self.input().path)),
-                   os.path.join("/dummy/data", os.path.basename(self.output().path)))
+              docker run --rm --network magicloop_net  -v magicloop_store:/magicloop/data  magicloop/test-python --inputfile {} --outputfile {}
+        '''.format(os.path.join("/magicloop/data", os.path.basename(self.input().path)),
+                   os.path.join("/magicloop/data", os.path.basename(self.output().path)))
 
         logger.debug(cmd)
 
@@ -99,10 +99,10 @@ class PySparkTask(luigi.Task):
 
     def run(self):
         cmd = '''
-              docker run --rm --network dummy_net -v dummy_store:/dummy/data dummy/test-pyspark --master {} --input {} --output {}
+              docker run --rm --network magicloop_net -v magicloop_store:/magicloop/data magicloop/test-pyspark --master {} --input {} --output {}
         '''.format("spark://master:7077",
-                   os.path.join("/dummy/data", os.path.basename(self.input().path)),
-                   os.path.join("/dummy/data", os.path.basename(self.output().path)))
+                   os.path.join("/magicloop/data", os.path.basename(self.input().path)),
+                   os.path.join("/magicloop/data", os.path.basename(self.output().path)))
 
         logger.debug(cmd)
 
@@ -119,7 +119,7 @@ class SqoopTask(luigi.Task):
 
     def run(self):
         cmd = '''
-                docker run --rm --network dummy_net -v dummy_store:/dummy/data dummy/test-pyspark --master {} --input {} --output {}
+                docker run --rm --network magicloop_net -v magicloop_store:/magicloop/data magicloop/test-pyspark --master {} --input {} --output {}
         '''
 
         logger.debug(cmd)
@@ -137,7 +137,7 @@ class HadoopTask(luigi.Task):
 
     def run(self):
         cmd = '''
-                docker run --rm --network dummy_net -v dummy_store:/dummy/data dummy/test-pyspark --master {} --input {} --output {}
+                docker run --rm --network magicloop_net -v magicloop_store:/magicloop/data magicloop/test-pyspark --master {} --input {} --output {}
         '''
 
         logger.debug(cmd)

@@ -4,10 +4,10 @@ Pipelines API reference
 .. automodule:: tasks
    :members:
 
-Pipeline Dummy
+Pipeline magicloop
 ------------------
 
-.. automodule:: tasks.dummy
+.. automodule:: tasks.magicloop
    :members:
    :undoc-members:
    :inherited.members:

@@ -1,6 +1,6 @@
 from nose.tools import *
 
-import dummy.pipelines.dummy
+import magicloop.pipelines.magicloop
 
 def setup():
     print("SETUP")

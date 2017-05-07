@@ -6,7 +6,8 @@ import socket
 import sys
 import luigi
 
-import dummy.pipelines.dummy
+#import magicloop.pipelines.magicloop
+import magicloop.pipelines.irispipe
 
 def check_server(host, port):
     """
@@ -32,7 +33,9 @@ def main(server, port, luigi_cfg):
     Ejecuta el pipeline 
     """
 
-    luigi_args = ['DummyPipeline'
+    # luigi_args = ['magicloopPipeline'
+
+    luigi_args = ['IrisPipeline'
                   # '--level', str(level), 
                   # '--sleep', str(sleep),
                  ]
@@ -40,6 +43,8 @@ def main(server, port, luigi_cfg):
     ## Ejecuta luigi con el local scheduler si no hay servidor
     if not check_server(server, port):
         luigi_args.append('--local-scheduler')
+
+    print("Args: {}".format(luigi_args))
 
     luigi.run(luigi_args)
 

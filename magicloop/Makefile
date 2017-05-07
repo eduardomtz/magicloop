@@ -1,10 +1,11 @@
 SHELL := /bin/bash 
 PROJECT_NAME:=$(shell cat ../.project-name)
 DATA_DIRECTORY:=$(CURDIR)/../data
-IMAGES = test-r test-python test-pyspark
+IMAGES = test-python
+## test-r test-pyspark
 
 run:
-	@LUIGI_CONFIG_PATH=./pipelines/luigi.cfg	 $(PROJECT_NAME) --server 0.0.0.0 --port 8082
+	@LUIGI_CONFIG_PATH=./pipelines/luigi.cfg $(PROJECT_NAME) --server 0.0.0.0 --port 8082
 
 
 build: .built .built-local-storage
@@ -18,7 +19,7 @@ build: .built .built-local-storage
 .built-local-storage:
 	@if [ -z $(docker volume ls | grep $(PROJECT_NAME)_store) ]; then \
      docker volume create --name $(PROJECT_NAME)_store --opt type=none --opt device=$(DATA_DIRECTORY) --opt o=bind ; \
-   fi;
+    fi;
 	@touch .built-local-storage
 
 
