@@ -22,8 +22,12 @@ Plantilla para /pipelines/ usando ~Luigi~
 ./iniciar_pipeline.sh
 #+END_SRC
 
-> "Este archivo crea un swarm de docker localmente, instala las imagenes necesarias y por último ejecuta el pipeline. Es necesario colocar **iris.csv** en la carpeta data."
+Al ejecutar este archivo se ejecutarán las siguientes tareas:
+- Crea maquinas con docker localmente
+- Crea un swarm utilizando esas maquinas 
+- Instala las imagenes necesarias
+- Por último ejecuta el pipeline. 
 
-Esta basado en el proyecto [pipeline template][pipeline-template].
+**Es necesario colocar **iris.csv** en la carpeta data.**
 
-[pipeline-template]: https://github.com/nanounanue/pipeline-template
+Esta basado en el proyecto [pipeline-template](https://github.com/nanounanue/pipeline-template).
