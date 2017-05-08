@@ -1,4 +1,5 @@
 __author__ = 'eduardomartinez'
+# Ejercicio de clase DPA, Algun dia de Abril 2017
 # coding: utf-8
 # to run, export PYTHONPATH = 'esta carpeta'
 # luigi --module inicio_luigi IrisPipeline --local-scheduler

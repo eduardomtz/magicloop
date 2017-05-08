@@ -27,7 +27,8 @@ ENV/
 docs/_build
 
 # Los datos no se suben a git
-**/data/
+**/data/*.json
+**/data/*.pl
 
 # Bases de datos
 *.db
@@ -52,7 +53,6 @@ site/
 # Archivos de datos
 *.xlsx
 *.dat
-*.csv
 *.tsv
 *.psv
 *.sqlite

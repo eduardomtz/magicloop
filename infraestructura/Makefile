@@ -4,10 +4,11 @@
 ##            Variables               ##
 ########################################
 SHELL := /bin/bash 
-PROJECT_NAME:=dummy
+PROJECT_NAME:=$(shell cat ../.project-name)
 DATA_DIRECTORY:=$(CURDIR)/../data
 
-IMAGES = base python r java luigi-server luigi-worker spark-client hadoop-client
+# IMAGES = base python r java luigi-server luigi-worker spark-client hadoop-client
+IMAGES = base python luigi-server luigi-worker
 IMAGE_VERSION:=0.2
 
 ########################################

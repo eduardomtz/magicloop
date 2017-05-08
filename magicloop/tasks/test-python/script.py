@@ -47,7 +47,7 @@ def main(inputfile,seed,validationsize,modelname,inputparams,outputpickle,output
 	json1_str = json1_file.read()
 	modelParams = json.loads(json1_str)
 	print("model params: {}".format(modelParams))
-	print(type(modelParams['C']))
+	# print(type(modelParams['C']))
 
 	#print("X shape {}".format(X_train.shape))
 	#print("Y shape {}".format(Y_train.values().ravel().shape))
