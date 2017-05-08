@@ -28,6 +28,6 @@ Al ejecutar este archivo se ejecutarán las siguientes tareas:
 - Instala las imagenes necesarias
 - Por último ejecuta el pipeline. 
 
-**Es necesario colocar iris.csv en la carpeta data.**
+*Es necesario colocar iris.csv en la carpeta data.*
 
 Esta basado en el proyecto [pipeline-template](https://github.com/nanounanue/pipeline-template).
