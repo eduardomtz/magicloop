@@ -69,6 +69,7 @@ site/
 **/.infrastructure_built*
 **/.network_built*
 **/.running*
+**/.images_built*
 
 # Basura de Emacs
 **/.#*

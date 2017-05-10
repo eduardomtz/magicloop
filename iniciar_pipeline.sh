@@ -15,6 +15,7 @@ for N in $(seq 2 5); do
   eval $(docker-machine env node$N)
   docker swarm join --token $TOKEN $(docker-machine  ip node1):2377
 done
+
 eval $(docker-machine env node1)
 
 ## iniciar servicio 
